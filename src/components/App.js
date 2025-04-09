@@ -1,48 +1,18 @@
-
 import React from "react";
 import './../styles/App.css';
-import { BrowserRouter,Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemList from './ItemList';
+import ItemDetail from './ItemDetail';
 
-const Header = () => {
+function App() {
   return (
-    <header>
-      <ul>
-       <li> <Link to="/">Home</Link></li>
-      <li><Link to="/about">About</Link> </li>
-    </ul>
-    </header>
-  );
-};
-
-
-const Home = () => {
-  return (
-    <h1>
-     Welcome to my website!
-    </h1>  
-  );
-};
-const About = () => {
-  return (
-    <div>
-    <h1>
-     About
-    </h1>
-    <p>This is a sample React Router program.</p>
-    </div>
-  );
-};
-
-const App = () => {
-  return (
-   <BrowserRouter>
-      <Header />
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<ItemList />} />
+        <Route path="/items/:id" element={<ItemDetail />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
